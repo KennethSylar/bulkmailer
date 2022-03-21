@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -43,4 +44,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /**
+     * Related packages for the user.
+     */
+    public function user_packages(): HasMany
+    {
+        return $this->hasMany(User_package::class, 'user_id');
+    }
+
+
+    /**
+     * Get the packages for the user.
+     */
+    public function getPackages()
+    {
+        return $this->user_packages()->get()->first();
+    }
+
+
 }
