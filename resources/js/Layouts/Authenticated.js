@@ -31,7 +31,7 @@ export default function Authenticated({ auth, header, children }) {
                                     Email templates
                                 </NavLink>
                                 <NavLink href={route('manage-package')} active={route().current('manage-package')}>
-                                    My Package
+                                    Subscriptions
                                 </NavLink>
                                 <NavLink href={route('account')} active={route().current('account')}>
                                     Account

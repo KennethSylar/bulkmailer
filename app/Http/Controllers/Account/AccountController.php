@@ -16,9 +16,9 @@ class AccountController extends \App\Http\Controllers\Controller
     public function index(){
 
         $User = User::query()->find(Auth::user()->id);
-        $Package = $User->getPackages();
+        $Package = $User->getPackages() ? $User->getPackages()->packages() : null;
 
-        return Inertia::render('Account', ['user' => $User, 'package'  => $Package->packages()]);
+        return Inertia::render('Account', ['user' => $User, 'package'  => $Package]);
     }
 
 

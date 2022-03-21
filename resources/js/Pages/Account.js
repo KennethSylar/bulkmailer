@@ -35,104 +35,51 @@ export default function Account(props) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <ValidationErrors errors={errors} />
-                    <form onSubmit={submit}>
-                        <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
-                            <h4>Personal Information</h4>
-                            <div>
-                                <Label forInput="name" value="Name" />
-
-                                <Input
-                                    type="text"
-                                    name="name"
-                                    value={data.name}
-                                    className="mt-1 block w-full"
-                                    autoComplete="name"
-                                    isFocused={true}
-                                    handleChange={onHandleChange}
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <Label forInput="lastname" value="Lastname" />
-
-                                <Input
-                                    type="text"
-                                    name="lastname"
-                                    value={data.lastname}
-                                    className="mt-1 block w-full"
-                                    autoComplete="lastname"
-                                    isFocused={true}
-                                    handleChange={onHandleChange}
-                                    required
-                                />
-                            </div>
-
-                            <div className="mt-4">
-                                <Label forInput="email" value="Email" />
-
-                                <Input
-                                    type="email"
-                                    name="email"
-                                    value={data.email}
-                                    className="mt-1 block w-full"
-                                    autoComplete="username"
-                                    handleChange={onHandleChange}
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                        <div className="bg-white mt-4 overflow-hidden shadow-sm sm:rounded-lg">
-                            <div className="p-6 bg-white border-b border-gray-200">
-                                <h4>Subscriptions</h4>
+                            <ValidationErrors errors={errors} />
+                            <form onSubmit={submit}>
+                                <h4>Personal Information</h4>
                                 <div>
                                     <Label forInput="name" value="Name" />
 
                                     <Input
                                         type="text"
                                         name="name"
-                                        value={props.package.name}
+                                        value={data.name}
                                         className="mt-1 block w-full"
                                         autoComplete="name"
                                         isFocused={true}
                                         handleChange={onHandleChange}
                                         required
-                                        disabled
                                     />
                                 </div>
                                 <div>
-                                    <Label forInput="description" value="Description" />
+                                    <Label forInput="lastname" value="Lastname" />
 
                                     <Input
                                         type="text"
-                                        name="description"
-                                        value={props.package.description}
+                                        name="lastname"
+                                        value={data.lastname}
                                         className="mt-1 block w-full"
-                                        autoComplete="description"
+                                        autoComplete="lastname"
                                         isFocused={true}
                                         handleChange={onHandleChange}
                                         required
-                                        disabled
                                     />
                                 </div>
-                                <div>
-                                    <Label forInput="email_count" value="Total subscription emails" />
+
+                                <div className="mt-4">
+                                    <Label forInput="email" value="Email" />
 
                                     <Input
-                                        type="text"
-                                        name="email_count"
-                                        value={props.package.email_count}
+                                        type="email"
+                                        name="email"
+                                        value={data.email}
                                         className="mt-1 block w-full"
-                                        autoComplete="email_count"
-                                        isFocused={true}
+                                        autoComplete="username"
                                         handleChange={onHandleChange}
                                         required
-                                        disabled
                                     />
                                 </div>
 
@@ -141,9 +88,67 @@ export default function Account(props) {
                                         Update profile
                                     </Button>
                                 </div>
-                            </div>
+
+                            </form>
                         </div>
-                    </form>
+                    </div>
+
+                    <div className="bg-white mt-4 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-6 bg-white border-b border-gray-200">
+                            <h4>Subscriptions</h4>
+                            {
+                                props.package !== null ? (
+                                    <div>
+                                        <div>
+                                            <Label forInput="name" value="Name" />
+
+                                            <Input
+                                                type="text"
+                                                name="name"
+                                                value={props.package.name}
+                                                className="mt-1 block w-full"
+                                                autoComplete="name"
+                                                handleChange={onHandleChange}
+                                                required
+                                                disabled
+                                            />
+                                        </div>
+                                        <div>
+                                            <Label forInput="description" value="Description" />
+
+                                            <Input
+                                                type="text"
+                                                name="description"
+                                                value={props.package.description}
+                                                className="mt-1 block w-full"
+                                                autoComplete="description"
+                                                handleChange={onHandleChange}
+                                                required
+                                                disabled
+                                            />
+                                        </div>
+                                        <div>
+                                            <Label forInput="email_count" value="Total subscription emails" />
+
+                                            <Input
+                                                type="text"
+                                                name="email_count"
+                                                value={props.package.email_count}
+                                                className="mt-1 block w-full"
+                                                autoComplete="email_count"
+                                                handleChange={onHandleChange}
+                                                required
+                                                disabled
+                                            />
+                                        </div>
+                                    </div>
+
+                                ): (
+                                        'No Active Subscription'
+                                    )
+                            }
+                        </div>
+                    </div>
                 </div>
             </div>
         </Authenticated>

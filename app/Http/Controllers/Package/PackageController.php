@@ -16,8 +16,8 @@ class PackageController extends \App\Http\Controllers\Controller
     public function index(){
 
         $User = User::query()->find(Auth::user()->id);
-        $Package = $User->getPackages();
-        return Inertia::render('Packages', ['activePackage'  => $Package->packages()]);
+        $Package = $User->getPackages() ? $User->getPackages()->packages() : null;
+        return Inertia::render('Packages', ['activePackage'  => $Package]);
     }
 
 
