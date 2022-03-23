@@ -38,6 +38,19 @@ export default function Register() {
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
+
+                <div className="mt-4 mb-6">
+                    <Label forInput="package" value="Selected Email Package" />
+
+                    <select
+                        className="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                        name="package"
+                        id="package">
+                        <option value="">Package 1</option>
+                        <option value="">Package 2</option>
+                    </select>
+                </div>
+
                 <div>
                     <Label forInput="name" value="Name" />
 
@@ -107,7 +120,6 @@ export default function Register() {
                         required
                     />
                 </div>
-
                 <div className="flex items-center justify-end mt-4">
                     <Link href={route('login')} className="underline text-sm text-gray-600 hover:text-gray-900">
                         Already registered?
