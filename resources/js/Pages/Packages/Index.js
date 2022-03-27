@@ -6,7 +6,7 @@ import ValidationErrors from '@/Components/ValidationErrors';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
 import Button from "@/Components/Button";
 
-export default function Packages(props) {
+export default function Index(props) {
     const { activePackage, setData, post, processing, errors, reset } = useForm({
     });
 
@@ -25,15 +25,18 @@ export default function Packages(props) {
             errors={props.errors}
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Manage Email Package</h2>}
         >
-            <Head title="Dashboard" />
+            <Head title="Subscriptions" />
 
-            <div className="py-12">
+            <div className="py-12 px-2">
                 {
                     props.activePackage !== null ? (
-                        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div className="m-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
+                            <div className="p-6 bg-white border-b border-gray-200  shadow-sm sm:rounded-lg my-4">
+                                <Link role="button" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href={route('change-subscription')}>Change Subscription</Link>
+                            </div>
                             <ValidationErrors errors={errors}/>
                             <form onSubmit={submit}>
-                                <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                                <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg"   >
 
                                     <div className="p-6 bg-white border-b border-gray-200">
                                         <h4>Current Package</h4>
@@ -46,8 +49,8 @@ export default function Packages(props) {
                                                 value={props.activePackage.name}
                                                 className="mt-1 block w-full"
                                                 autoComplete="name"
-                                                isFocused={true}
-                                                disabled
+                                                isFocused={false}
+                                                   disabled
                                                 handleChange={onHandleChange}
                                                 required
                                             />
@@ -61,7 +64,7 @@ export default function Packages(props) {
                                                 value={`R ` + props.activePackage.price}
                                                 className="mt-1 block w-full"
                                                 autoComplete="lastname"
-                                                isFocused={true}
+                                                isFocused={false}
                                                 disabled
                                                 handleChange={onHandleChange}
                                                 required
@@ -77,7 +80,7 @@ export default function Packages(props) {
                                                 value={props.activePackage.email_count}
                                                 className="mt-1 block w-full"
                                                 autoComplete="count"
-                                                isFocused={true}
+                                                isFocused={false}
                                                 disabled
                                                 handleChange={onHandleChange}
                                                 required

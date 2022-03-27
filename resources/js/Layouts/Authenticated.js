@@ -27,6 +27,9 @@ export default function Authenticated({ auth, header, children }) {
                                 <NavLink href={route('campaigns')} active={route().current('campaigns')}>
                                     Campaigns
                                 </NavLink>
+                                <NavLink href={route('contact-list')} active={route().current('contact-list')}>
+                                    Contact List
+                                </NavLink>
                                 <NavLink href={route('emails')} active={route().current('emails')}>
                                     Email templates
                                 </NavLink>
@@ -35,6 +38,9 @@ export default function Authenticated({ auth, header, children }) {
                                 </NavLink>
                                 <NavLink href={route('account')} active={route().current('account')}>
                                     Account
+                                </NavLink>
+                                <NavLink href={route('billing')} active={route().current('billing')}>
+                                    Billing
                                 </NavLink>
                             </div>
                         </div>
@@ -105,6 +111,24 @@ export default function Authenticated({ auth, header, children }) {
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('campaigns')} active={route().current('campaigns')}>
+                            Campaigns
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('contact-list')} active={route().current('contact-list')}>
+                            Contact List
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('emails')} active={route().current('emails')}>
+                            Email templates
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('manage-package')} active={route().current('manage-package')}>
+                            Subscriptions
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('account')} active={route().current('account')}>
+                            Account
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('billing')} active={route().current('billing')}>
+                            Billing
                         </ResponsiveNavLink>
                     </div>
 

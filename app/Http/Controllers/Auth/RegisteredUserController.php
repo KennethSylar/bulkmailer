@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Package;
 use App\Models\User;
+use App\Models\User_package;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -21,7 +23,8 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Auth/Register');
+        $Packages = Package::query()->get()->all();
+        return Inertia::render('Auth/Register', ['packages'  => $Packages]);
     }
 
     /**
@@ -50,6 +53,11 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        User_package::create([
+            'user_id' => $user->id,
+            'package_id' => $request->package
+        ]);
 
         return redirect(RouteServiceProvider::HOME);
     }
