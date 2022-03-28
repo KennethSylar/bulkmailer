@@ -32,7 +32,7 @@ class PackageSeeder extends Seeder
             [
                 'name' => 'Young Guru',
                 'description' => 'For those seeking to reach a huge client base',
-                'price' => '150000',
+                'price' => '15000',
                 'email_count' => '75000',
             ],
             [

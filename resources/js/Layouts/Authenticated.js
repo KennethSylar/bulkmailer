@@ -33,9 +33,6 @@ export default function Authenticated({ auth, header, children }) {
                                 <NavLink href={route('emails')} active={route().current('emails')}>
                                     Email templates
                                 </NavLink>
-                                <NavLink href={route('manage-package')} active={route().current('manage-package')}>
-                                    Subscriptions
-                                </NavLink>
                                 <NavLink href={route('account')} active={route().current('account')}>
                                     Account
                                 </NavLink>
@@ -120,9 +117,6 @@ export default function Authenticated({ auth, header, children }) {
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('emails')} active={route().current('emails')}>
                             Email templates
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('manage-package')} active={route().current('manage-package')}>
-                            Subscriptions
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('account')} active={route().current('account')}>
                             Account

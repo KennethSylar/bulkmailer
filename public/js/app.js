@@ -4761,10 +4761,6 @@ function Authenticated(_ref) {
                 active: route().current('emails'),
                 children: "Email templates"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_NavLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                href: route('manage-package'),
-                active: route().current('manage-package'),
-                children: "Subscriptions"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_NavLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
                 href: route('account'),
                 active: route().current('account'),
                 children: "Account"
@@ -4859,10 +4855,6 @@ function Authenticated(_ref) {
             href: route('emails'),
             active: route().current('emails'),
             children: "Email templates"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_ResponsiveNavLink__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            href: route('manage-package'),
-            active: route().current('manage-package'),
-            children: "Subscriptions"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_ResponsiveNavLink__WEBPACK_IMPORTED_MODULE_4__["default"], {
             href: route('account'),
             active: route().current('account'),
