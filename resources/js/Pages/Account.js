@@ -54,7 +54,7 @@ export default function Account(props) {
                                         required
                                     />
                                 </div>
-                                <div>
+                                <div className="mt-2">
                                     <Label forInput="lastname" value="Lastname" />
 
                                     <Input
@@ -113,7 +113,7 @@ export default function Account(props) {
                                                 disabled
                                             />
                                         </div>
-                                        <div>
+                                        <div className="mt-2">
                                             <Label forInput="description" value="Description" />
 
                                             <Input
@@ -127,7 +127,7 @@ export default function Account(props) {
                                                 disabled
                                             />
                                         </div>
-                                        <div>
+                                        <div className="mt-2">
                                             <Label forInput="email_count" value="Total subscription emails" />
 
                                             <Input
@@ -147,6 +147,42 @@ export default function Account(props) {
                                         'No Active Subscription'
                                     )
                             }
+                        </div>
+                    </div>
+                    <div className="bg-white mt-4 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-6 bg-white border-b border-gray-200">
+                            <h4>User Domain</h4>
+                                <div>
+                                    <div className="mt-2">
+                                        <Label forInput="name" value="Domain url" />
+
+                                        <Input
+                                            type="text"
+                                            name="name"
+                                            value={props.package.name}
+                                            className="mt-1 block w-full"
+                                            autoComplete="name"
+                                            handleChange={onHandleChange}
+                                            required
+                                            disabled
+                                        />
+                                    </div>
+                                    <div className="mt-2">
+                                        <Label forInput="name" value="Admin Email Account" />
+
+                                        <Input
+                                            type="email"
+                                            name="name"
+                                            value={props.package.name}
+                                            className="mt-1 block w-full"
+                                            autoComplete="name"
+                                            handleChange={onHandleChange}
+                                            required
+                                            disabled
+                                        />
+                                    </div>
+
+                                </div>
                         </div>
                     </div>
                 </div>

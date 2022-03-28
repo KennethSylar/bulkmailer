@@ -5039,6 +5039,7 @@ function Account(props) {
                   required: true
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                className: "mt-2",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   forInput: "lastname",
                   value: "Lastname"
@@ -5098,6 +5099,7 @@ function Account(props) {
                   disabled: true
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                className: "mt-2",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   forInput: "description",
                   value: "Description"
@@ -5112,6 +5114,7 @@ function Account(props) {
                   disabled: true
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                className: "mt-2",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   forInput: "email_count",
                   value: "Total subscription emails"
@@ -5127,6 +5130,46 @@ function Account(props) {
                 })]
               })]
             }) : 'No Active Subscription']
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "bg-white mt-4 overflow-hidden shadow-sm sm:rounded-lg",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            className: "p-6 bg-white border-b border-gray-200",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
+              children: "User Domain"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                className: "mt-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  forInput: "name",
+                  value: "Domain url"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  type: "text",
+                  name: "name",
+                  value: props["package"].name,
+                  className: "mt-1 block w-full",
+                  autoComplete: "name",
+                  handleChange: onHandleChange,
+                  required: true,
+                  disabled: true
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                className: "mt-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  forInput: "name",
+                  value: "Admin Email Account"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  type: "email",
+                  name: "name",
+                  value: props["package"].name,
+                  className: "mt-1 block w-full",
+                  autoComplete: "name",
+                  handleChange: onHandleChange,
+                  required: true,
+                  disabled: true
+                })]
+              })]
+            })]
           })
         })]
       })
