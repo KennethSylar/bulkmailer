@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Package;
+namespace App\Http\Controllers\Billing;
 
-use App\Models\Package;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
-class PackageController extends \App\Http\Controllers\Controller
+class BillingController extends \App\Http\Controllers\Controller
 {
     /**
      * Display the registration view.
@@ -18,17 +17,21 @@ class PackageController extends \App\Http\Controllers\Controller
 
         $User = User::query()->find(Auth::user()->id);
         $Package = $User->getPackages() ? $User->getPackages()->packages() : null;
-        return Inertia::render('Subscriptions/Index', ['activePackage'  => $Package]);
+
+        return Inertia::render('Billing/Index', ['user' => $User, 'package'  => $Package]);
     }
+
     /**
      * Display the registration view.
      *
      * @return \Inertia\Response
      */
-    public function change(){
+    public function edit(){
 
-        $Packages = Package::query()->get()->all();
-        return Inertia::render('Subscriptions/UpdatePackage', ['packages'  => $Packages]);
+        $User = User::query()->find(Auth::user()->id);
+        $Package = $User->getPackages() ? $User->getPackages()->packages() : null;
+
+        return Inertia::render('Billing/Edit', ['user' => $User, 'package'  => $Package]);
     }
 
 

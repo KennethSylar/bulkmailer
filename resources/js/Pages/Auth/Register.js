@@ -6,13 +6,14 @@ import Label from '@/Components/Label';
 import ValidationErrors from '@/Components/ValidationErrors';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
 
-export default function Register() {
+export default function Register(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         lastname: '',
         email: '',
         password: '',
         password_confirmation: '',
+        package: '',
     });
 
     useEffect(() => {
@@ -45,9 +46,16 @@ export default function Register() {
                     <select
                         className="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
                         name="package"
+                        onChange={onHandleChange}
+                        value={data.package}
                         id="package">
-                        <option value="">Package 1</option>
-                        <option value="">Package 2</option>
+                        {
+                            props.packages.map((sub_package, i) =>{
+                                return(
+                                    <option key={i} value={sub_package.id}>{sub_package.name}</option>
+                                )
+                            })
+                        }
                     </select>
                 </div>
 
