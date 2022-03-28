@@ -18,7 +18,7 @@ class PackageController extends \App\Http\Controllers\Controller
 
         $User = User::query()->find(Auth::user()->id);
         $Package = $User->getPackages() ? $User->getPackages()->packages() : null;
-        return Inertia::render('Packages/Index', ['activePackage'  => $Package]);
+        return Inertia::render('Subscriptions/Index', ['activePackage'  => $Package]);
     }
     /**
      * Display the registration view.
@@ -28,7 +28,7 @@ class PackageController extends \App\Http\Controllers\Controller
     public function change(){
 
         $Packages = Package::query()->get()->all();
-        return Inertia::render('Packages/UpdatePackage', ['packages'  => $Packages]);
+        return Inertia::render('Subscriptions/UpdatePackage', ['packages'  => $Packages]);
     }
 
 

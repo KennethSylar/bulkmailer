@@ -21,5 +21,18 @@ class BillingController extends \App\Http\Controllers\Controller
         return Inertia::render('Billing/Index', ['user' => $User, 'package'  => $Package]);
     }
 
+    /**
+     * Display the registration view.
+     *
+     * @return \Inertia\Response
+     */
+    public function edit(){
+
+        $User = User::query()->find(Auth::user()->id);
+        $Package = $User->getPackages() ? $User->getPackages()->packages() : null;
+
+        return Inertia::render('Billing/Edit', ['user' => $User, 'package'  => $Package]);
+    }
+
 
 }

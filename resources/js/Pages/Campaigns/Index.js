@@ -18,6 +18,12 @@ export default function Index(props) {
                             <Link role="button" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href={route('new-campaign')}>Create Campaign</Link>
                         </div>
                     </div>
+
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
+                        <div className="p-6 bg-white border-b border-gray-200">
+                            Display running campaigns
+                        </div>
+                    </div>
                 </div>
             </div>
         </Authenticated>

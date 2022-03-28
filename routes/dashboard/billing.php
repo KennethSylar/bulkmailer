@@ -7,3 +7,4 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('billing', [BillingController::class, 'index'])->name('billing');
+Route::get('edit-billing', [BillingController::class, 'edit'])->name('edit-billing');

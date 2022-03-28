@@ -97,7 +97,7 @@ export default function Index(props) {
                                                       disabled
                                                       defaultValue={props.activePackage.description}
                                                       rows="10">
-                                    </textarea>
+                                            </textarea>
                                         </div>
                                     </div>
 
