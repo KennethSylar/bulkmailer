@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('domains', function (Blueprint $table) {
+        Schema::create('contact_list', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('admin_email');
-            $table->string('domain_url');
-            $table->boolean('verified')->default(0);
+            $table->string('name');
+            $table->text('description');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('domain');
+        Schema::dropIfExists('contact_list');
     }
 };

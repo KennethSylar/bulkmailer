@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Campaign;
 use App\Http\Controllers\Controller;
+use App\Models\Contact_List;
 use App\Models\User;
 use App\Models\User_package;
 use App\Providers\RouteServiceProvider;
@@ -42,16 +43,10 @@ class CampaignController extends Controller
                 'name' => 'test-2'
             ]
         ]);
-        $Contact_list = collect([
-            [
-                'id' => 1,
-                'name' => 'test'
-            ],
-            [
-                'id' => 2,
-                'name' => 'test-2'
-            ]
-        ]);
+        $Contact_list = Contact_List::query()->where([
+                                ['status', '=', true],
+                                ['user_id', '=', Auth::user()->id],
+                            ])->get();
         return Inertia::render('Campaigns/New', ['templates' => $Templates, 'contact_list' => $Contact_list]);
     }
 

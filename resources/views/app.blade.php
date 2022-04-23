@@ -14,6 +14,7 @@
 
         <!-- Scripts -->
         @routes
+        @toastr_css
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
@@ -23,4 +24,7 @@
             <script src="http://localhost:8080/js/bundle.js"></script>
         @endenv
     </body>
+    @jquery
+    @toastr_js
+
 </html>

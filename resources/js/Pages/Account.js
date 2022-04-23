@@ -12,8 +12,9 @@ export default function Account(props) {
         name: props.user.name,
         lastname: props.user.lastname,
         email: props.user.email,
-        password: '',
-        password_confirmation: '',
+        phone_number: props.user.phone_number,
+        domain: props.user.domain,
+        adminEmail: props.user.adminEmail,
     });
 
     const onHandleChange = (event) => {
@@ -24,6 +25,12 @@ export default function Account(props) {
         e.preventDefault();
 
         post(route('update-profile'));
+    };
+
+    const verifyDomain = (e) => {
+        e.preventDefault();
+        alert('Verify Domain')
+        post(route('update-domain'));
     };
     return (
         <Authenticated
@@ -38,7 +45,7 @@ export default function Account(props) {
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
                             <ValidationErrors errors={errors} />
-                            <form onSubmit={submit}>
+                            <form onSubmit={submit} method="POST">
                                 <h4>Personal Information</h4>
                                 <div>
                                     <Label forInput="name" value="Name" />
@@ -46,7 +53,7 @@ export default function Account(props) {
                                     <Input
                                         type="text"
                                         name="name"
-                                        value={data.name}
+                                        value={data.name?data.name:''}
                                         className="mt-1 block w-full"
                                         autoComplete="name"
                                         isFocused={true}
@@ -60,9 +67,23 @@ export default function Account(props) {
                                     <Input
                                         type="text"
                                         name="lastname"
-                                        value={data.lastname}
+                                        value={data.lastname?data.lastname:''}
                                         className="mt-1 block w-full"
                                         autoComplete="lastname"
+                                        isFocused={true}
+                                        handleChange={onHandleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="mt-2">
+                                    <Label forInput="phone_number" value="Phone number" />
+
+                                    <Input
+                                        type="text"
+                                        name="phone_number"
+                                        value={data.phone_number?data.phone_number:''}
+                                        className="mt-1 block w-full"
+                                        autoComplete="phone_number"
                                         isFocused={true}
                                         handleChange={onHandleChange}
                                         required
@@ -75,7 +96,7 @@ export default function Account(props) {
                                     <Input
                                         type="email"
                                         name="email"
-                                        value={data.email}
+                                        value={data.email?data.email:''}
                                         className="mt-1 block w-full"
                                         autoComplete="username"
                                         handleChange={onHandleChange}
@@ -84,7 +105,7 @@ export default function Account(props) {
                                 </div>
 
                                 <div className="flex items-center justify-end mt-4">
-                                    <Button className="ml-4" processing={processing}>
+                                    <Button className="ml-4" type="submit" processing={processing}>
                                         Update profile
                                     </Button>
                                 </div>
@@ -151,15 +172,16 @@ export default function Account(props) {
                     </div>
                     <div className="bg-white mt-4 overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
-                            <h4>User Domain</h4>
+                            <h4>User Domain {props.domain ? (props.domain.verified === 0 ? ' (Pending Verification)':' (Verified)'):''}</h4>
+                            <form method="POST" onSubmit={verifyDomain}>
                                 <div>
                                     <div className="mt-2">
                                         <Label forInput="name" value="Domain url" />
 
                                         <Input
                                             type="text"
-                                            name="name"
-                                            value={props.package.name}
+                                            name="domain"
+                                            value={props.domain?props.domain.domain_url:''}
                                             className="mt-1 block w-full"
                                             autoComplete="name"
                                             handleChange={onHandleChange}
@@ -172,8 +194,8 @@ export default function Account(props) {
 
                                         <Input
                                             type="email"
-                                            name="name"
-                                            value={props.package.name}
+                                            name="adminEmail"
+                                            value={props.domain?props.domain.admin_email:''}
                                             className="mt-1 block w-full"
                                             autoComplete="name"
                                             handleChange={onHandleChange}
@@ -183,6 +205,13 @@ export default function Account(props) {
                                     </div>
 
                                 </div>
+
+                                <div className="flex items-center justify-end mt-4">
+                                    <Button className="ml-4" type="submit" processing={processing}>
+                                        Verify Domain
+                                    </Button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
